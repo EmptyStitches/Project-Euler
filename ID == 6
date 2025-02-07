@@ -1,0 +1,6 @@
+def SumSquareDifference():
+    
+    numbers = [x for x in range(1,101)]
+    squares = [x**2 for x in range(1,101)]
+    
+    return sum(numbers)**2 - sum(squares)
