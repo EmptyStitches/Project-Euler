@@ -1,0 +1,16 @@
+def primes():
+    i = 3
+    counter = 1
+    import math
+    while counter != 10001:
+        state = True
+        for x in range(2,math.ceil(math.sqrt(i))+1):
+            
+            if i % x == 0:
+                state = False
+                break
+        if state:
+            counter += 1
+        i += 2
+        
+    return i - 2
