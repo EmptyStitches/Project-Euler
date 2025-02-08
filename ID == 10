@@ -1,0 +1,27 @@
+import time
+start = time.time()
+def SummationOfPrimes():
+    
+    import math
+    n = 2* 10**6
+    i = 1
+    resultado = 0
+    lista = [x for x in range(1,n) if x%2==1]
+    while i < math.ceil(n**(1/2)):
+        if n//i in lista and i in lista:
+            print(i)
+            lista.remove(i)
+            lista.remove(n//i)
+        else:
+            if all([i%x!=0 for x in range(3,i//2)]):
+                resultado  += i
+        i+= 2
+    
+
+    return resultado
+
+
+
+print(SummationOfPrimes())
+finish = time.time()
+print(f'Tempo: {round(finish-start,2)}s')
