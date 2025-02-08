@@ -1,0 +1,19 @@
+def HighlyDivisibleTriangularNumber():
+    
+    i = 999
+    number = sum([x for x in range(1,999)])
+    
+    while True:
+
+        counter = 1
+        import math
+        for x in range(1,math.ceil(number**(1/2))):
+            if number % x == 0:
+                counter += 2
+                if counter == 501:
+                    return number
+        print(counter,number)
+        number += i
+        i+=1
+    
+print(HighlyDivisibleTriangularNumber())
