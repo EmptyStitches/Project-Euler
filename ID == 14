@@ -1,0 +1,15 @@
+def colab(n=10**6):
+    dic = {1 : 1}
+    for x in range(2,n):
+        i = 0
+        n = x
+        while x not in dic.keys():
+            #print(f'x: {x}')
+            if x%2==0:
+                x=x//2
+            else:
+                x=3*x +1
+            i+=1
+        dic[n] = i + dic[x]
+
+    return max([(dic[x],x) for x in dic.keys()])
