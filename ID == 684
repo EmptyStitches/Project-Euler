@@ -1,0 +1,43 @@
+dic_s = {1:1}
+dic_S = {1:1}
+
+dic_fib= {0:0,1:1,2:1}
+ultimo_S = 1
+def s(n): # NÃO MEXE MAIS
+
+    if n in dic_s:
+        return dic_s[n]
+
+    else:
+        dic_s[n] = int(str(n%9)+'9'*(n//9))
+
+    return dic_s[n]
+
+
+def S(k):
+    if k in dic_S:
+        return dic_S[k]
+
+    n = max(dic_S.keys()) + 1
+
+    while n != k+1:
+        dic_S[n] = dic_S[n-1] + s(k)
+        n += 1
+    return dic_S[k]
+#    return sum([s(x) for x in range(1,k+1)])
+
+
+
+
+def fibonacci(i):
+    print(i)
+    if i in dic_fib:
+        return dic_fib[i]
+    dic_fib[i] = dic_fib[i-1] + dic_fib[i-2]
+    return dic_fib[i]
+
+
+def resposta(k):
+    return sum([S(fibonacci(x))%100000007 for x in range(2,91)])
+
+print(resposta(90))
