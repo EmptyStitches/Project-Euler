@@ -1,0 +1,4 @@
+def FactorialDigitSum():
+    import math
+    return sum([int(x) for x in str(math.factorial(100))])
+print(FactorialDigitSum())
