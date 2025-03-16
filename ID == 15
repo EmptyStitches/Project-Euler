@@ -1,0 +1,27 @@
+def grid(n):
+    
+    hist = {}
+    for i in range(0,n+1): 
+        for j in range(0,n+1):
+            hist[i,j] = 0
+    diagonais = []
+    hist[(n,n)] = 1
+    i = 0
+    
+    while i <= n:
+        x = 0
+        while x <= i:
+            diagonais += [(i-x,x)]
+            x += 1
+        i+= 1
+    for x in diagonais[:-n-1][::-1]:
+        diagonais += [(n-x[0],n-x[1])]
+    
+    for x,y in diagonais[::-1][1:]:
+        if x + 1 <= n:
+            hist[(x,y)] += hist[(x+1,y)]
+        if y + 1 <= n:
+            hist[(x,y)] += hist[(x,y+1)]
+    return hist[(0,0)]
+
+print(grid(20))
